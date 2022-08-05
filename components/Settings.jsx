@@ -1,4 +1,4 @@
-const { existsSync, lstatSync } = require('fs');
+const { existsSync, statSync } = require('fs');
 const { React, getModule } = require('powercord/webpack');
 const { SwitchItem, TextInput, Category } = require('powercord/components/settings');
 
@@ -68,7 +68,7 @@ module.exports = class EmojiUtilitySettings extends React.Component {
           defaultValue={this.props.getSetting('filePath')}
           style={!this.state.isFilePathValid ? { borderColor: 'red' } : {}}
           onChange={(value) => {
-            if (value.length === 0 || (existsSync(value) && lstatSync(value).isDirectory())) {
+            if (value.length === 0 || (existsSync(value) && statSync(value).isDirectory())) {
               this.setState({
                 isFilePathValid: true
               });
