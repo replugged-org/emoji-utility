@@ -304,8 +304,7 @@ module.exports = class EmojiUtility extends Plugin {
 
       features.push({
         type: 'submenu',
-        name: 'Clone',
-        hint: 'to',
+        name: 'Clone emote to',
         id: 'emoji-utility-clone',
         onClick: () => onGuildClick(null),
         getItems: getCloneableGuilds
